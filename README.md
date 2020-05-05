@@ -21,6 +21,14 @@ We recommend to use [PHPStorm](https://www.jetbrains.com/phpstorm/) IDE.
 - [Mathematicator](https://mathematicator.com/) packages:
 [mathematicator-core/search](https://github.com/mathematicator-core/search)
 
+### With Docker (Recommended)
+**To start project run in terminal:**
+
+```bash
+docker-compose -f docker/docker-compose.dev.yml up -d
+```
+
+### Without Docker
 **To start project run in terminal:**
 
 ```bash
