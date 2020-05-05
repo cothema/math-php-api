@@ -1,0 +1,58 @@
+name: Integrity check
+
+on:
+  pull_request:
+  push:
+
+jobs:
+  code_style:
+    runs-on: ubuntu-latest
+    name: Code style check
+    steps:
+      - name: Git clone
+        uses: actions/checkout@master
+
+      - name: Install PHP
+        uses: shivammathur/setup-php@master
+        with:
+          php-version: 7.4
+
+      - name: Install composer dependencies
+        run: |
+          composer install --no-interaction --prefer-dist
+
+      - name: Check PHPStan rules
+        run: vendor/bin/phpstan analyse src --level 8 --no-progress
+
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        php: ['7.4'] # 8.0
+
+    name: PHP ${{ matrix.php }} tests
+    steps:
+    - name: Git clone
+      uses: actions/checkout@master
+
+    - name: Install PHP
+      uses: shivammathur/setup-php@master
+      with:
+        php-version: ${{ matrix.php }}
+        coverage: pcov
+
+    - name: Install composer dependencies
+      run: |
+        composer install --no-interaction --prefer-dist
+
+#   - name: Run tests
+#     run: ... --coverage coverage.xml --coverage-src src
+
+#    - name: Upload coverage to Codecov
+#      uses: codecov/codecov-action@v1
+#      with:
+#        token: ${{ secrets.CODECOV_TOKEN }}
+#        file: ./coverage.xml
+#        flags: unittests
+#        name: codecov-umbrella
+#        fail_ci_if_error: true

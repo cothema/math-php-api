@@ -12,6 +12,7 @@
     "symfony/yaml": "5.0.*"
   },
   "require-dev": {
+    "phpstan/phpstan-symfony": "^0.12.6"
   },
   "config": {
     "preferred-install": {
