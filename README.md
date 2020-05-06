@@ -1,6 +1,6 @@
 # Cothema PHP Math API
 
-![Integrity check](https://github.com/cothema/math-php-api/workflows/Integrity%20check/badge.svg)
+[![Integrity check](https://github.com/cothema/math-php-api/workflows/Integrity%20check/badge.svg)](https://github.com/cothema/math-php-api/actions?query=workflow%3A%22Integrity+check%22)
 [![codecov](https://codecov.io/gh/cothema/math-php-api/branch/master/graph/badge.svg)](https://codecov.io/gh/mathematicator-core/calculator)
 [![License: MIT](https://img.shields.io/badge/License-MIT-brightgreen.svg)](https://opensource.org/licenses/MIT)
 
@@ -21,23 +21,29 @@ We recommend to use [PHPStorm](https://www.jetbrains.com/phpstorm/) IDE.
 ## Development
 
 **This package is based on:**
-- [Symfony 5 framework](https://symfony.com/)
 - [Mathematicator](https://mathematicator.com/) packages:
 [mathematicator-core/search](https://github.com/mathematicator-core/search)
+- [Symfony 5 framework](https://symfony.com/)
+- [Codeception Testing framework](https://codeception.com/)
 
 ### With Docker (Recommended)
-**To start project run in terminal:**
+**Start project run in terminal:**
 
 ```bash
 docker-compose -f docker/docker-compose.dev.yml up -d
 ```
 
 ### Without Docker
-**To start project run in terminal:**
+**Start project run in terminal:**
 
 ```bash
 composer install
 symfony server:start
+```
+
+**Run tests:**
+```bash
+php vendor/bin/codecept run
 ```
 
 ### Dev notes
