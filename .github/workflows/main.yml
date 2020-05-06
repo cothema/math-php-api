@@ -52,7 +52,7 @@ jobs:
       run: wget https://get.symfony.com/cli/installer -O - | bash
 
     - name: Run server
-      run: symfony server:start
+      run: /home/runner/.symfony/bin/symfony server:start
 
     - name: Run tests
       run: php vendor/bin/codecept run --no-interaction --coverage --coverage-xml
