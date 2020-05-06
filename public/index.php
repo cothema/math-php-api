@@ -4,11 +4,10 @@ use App\Kernel;
 use Symfony\Component\ErrorHandler\Debug;
 use Symfony\Component\HttpFoundation\Request;
 
-if(file_exists(dirname(__DIR__).'/../c3.php')) {
-    include dirname(__DIR__) . '/../c3.php';
-}
+# Codeception coverage
+include dirname(__DIR__) . '/c3.php';
 
-require dirname(__DIR__).'/config/bootstrap.php';
+require dirname(__DIR__) . '/config/bootstrap.php';
 
 if ($_SERVER['APP_DEBUG']) {
     umask(0000);
