@@ -4,7 +4,9 @@ use App\Kernel;
 use Symfony\Component\ErrorHandler\Debug;
 use Symfony\Component\HttpFoundation\Request;
 
-include '/../c3.php';
+if(file_exists(dirname(__DIR__).'/../c3.php')) {
+    include dirname(__DIR__) . '/../c3.php';
+}
 
 require dirname(__DIR__).'/config/bootstrap.php';
 

@@ -48,8 +48,14 @@ jobs:
     - name: Check security
       run: php bin/console security:check
 
+    - name: Install Symfony tools
+      run: wget https://get.symfony.com/cli/installer -O - | bash
+
+    - name: Run server
+      run: symfony server:start
+
     - name: Run tests
-      run: php vendor/bin/codecept run --coverage --coverage-xml
+      run: php vendor/bin/codecept run --no-interaction --coverage --coverage-xml
 
     - name: Upload coverage to Codecov
       uses: codecov/codecov-action@v1
