@@ -45,14 +45,17 @@ jobs:
       run: |
         composer install --no-interaction --prefer-dist
 
-#   - name: Run tests
-#     run: ... --coverage coverage.xml --coverage-src src
+    - name: Check security
+      run: php bin/console security:check
 
-#    - name: Upload coverage to Codecov
-#      uses: codecov/codecov-action@v1
-#      with:
-#        token: ${{ secrets.CODECOV_TOKEN }}
-#        file: ./coverage.xml
-#        flags: unittests
-#        name: codecov-umbrella
-#        fail_ci_if_error: true
+    - name: Run tests
+      run: php vendor/bin/codecept run --coverage --coverage-xml
+
+    - name: Upload coverage to Codecov
+      uses: codecov/codecov-action@v1
+      with:
+        token: ${{ secrets.CODECOV_TOKEN }}
+        file: ./tests/_output/coverage/coverage.xml
+        flags: unittests
+        name: codecov-umbrella
+        fail_ci_if_error: true
