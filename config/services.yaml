@@ -5,7 +5,7 @@
 # https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
     symfony:
-        container_xml_path: '%rootDir%/../../../var/cache/dev/App_KernelDevDebugContainer.xml'
+        container_xml_path: '../var/cache/dev/App_KernelDevDebugContainer.xml'
 
 services:
     # default configuration for services in *this* file
