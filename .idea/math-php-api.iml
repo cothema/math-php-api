@@ -78,6 +78,7 @@
       <excludeFolder url="file://$MODULE_DIR$/vendor/mathematicator-core/tokenizer" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/mathematicator-core/vizualizator" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/myclabs/deep-copy" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/nelmio/cors-bundle" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/nesbot/carbon" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/nette/application" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/nette/bootstrap" />

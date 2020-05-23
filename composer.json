@@ -23,6 +23,7 @@
     "mathematicator-core/statistic": "dev-master as 2.0.0",
     "mathematicator-core/tokenizer": "dev-master as 2.0.0",
     "mathematicator-core/vizualizator": "dev-master as 2.0.0",
+    "nelmio/cors-bundle": "^2.0",
     "sensio/framework-extra-bundle": "^5.5",
     "sensiolabs/security-checker": "^6.0",
     "symfony/apache-pack": "^1.0",
