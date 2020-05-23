@@ -94,7 +94,6 @@ services:
         public: true
     Mathematicator\Tokenizer\Tokenizer:
         public: true
-        arguments: ['%math%']
     Mathematicator\Tokenizer\TokensToLatex:
         arguments: ['%math.functions%']
     Mathematicator\Tokenizer\TokensToObject:
