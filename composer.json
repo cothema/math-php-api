@@ -25,6 +25,7 @@
     "mathematicator-core/vizualizator": "dev-master as 2.0.0",
     "sensio/framework-extra-bundle": "^5.5",
     "sensiolabs/security-checker": "^6.0",
+    "symfony/apache-pack": "^1.0",
     "symfony/console": "5.0.*",
     "symfony/dotenv": "5.0.*",
     "symfony/flex": "^1.3.1",
