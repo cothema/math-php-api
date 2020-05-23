@@ -22,7 +22,7 @@ jobs:
           composer install --no-interaction --prefer-dist
 
       - name: Check PHPStan rules
-        run: vendor/bin/phpstan analyse src --level 8 --no-progress
+        run: composer phpstan
 
   build:
     runs-on: ubuntu-latest
@@ -55,7 +55,7 @@ jobs:
       run: /home/runner/.symfony/bin/symfony server:start --daemon
 
     - name: Run tests
-      run: php vendor/bin/codecept run --no-interaction --coverage --coverage-xml
+      run: composer test
 
     - name: Upload coverage to Codecov
       uses: codecov/codecov-action@v1

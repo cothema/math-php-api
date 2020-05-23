@@ -2,7 +2,7 @@
 
 [![Integrity check](https://github.com/cothema/math-php-api/workflows/Integrity%20check/badge.svg)](https://github.com/cothema/math-php-api/actions?query=workflow%3A%22Integrity+check%22)
 [![Codecov](https://codecov.io/gh/cothema/math-php-api/branch/master/graph/badge.svg)](https://codecov.io/gh/mathematicator-core/calculator)
-[![License: MIT](https://img.shields.io/badge/License-MIT-brightgreen.svg)](https://opensource.org/licenses/MIT)
+[![License: MIT](https://img.shields.io/badge/License-MIT-brightgreen.svg)](./LICENSE)
 
 This package is REST API for Math requests.
 
@@ -20,7 +20,7 @@ This package is REST API for Math requests.
 
 The easiest way to use is to use our public API.
 
-**Terms of service:** [cothema.com/terms](https://cothema.com/terms)
+**Terms of service:** [https://cothema.com/terms](https://cothema.com/terms)
 
 **Public API:** [https://math-php.herokuapp.com/](https://math-php.herokuapp.com/)
 

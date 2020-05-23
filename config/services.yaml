@@ -6,6 +6,17 @@
 parameters:
     symfony:
         container_xml_path: '../var/cache/dev/App_KernelDevDebugContainer.xml'
+    math.functions:
+            - sin
+            - cos
+            - tan
+            - cotan
+            - log
+            - log\d*
+            - ln
+            - sqrt
+    math:
+        functions: '%math.functions%'
 
 services:
     # default configuration for services in *this* file
@@ -27,3 +38,88 @@ services:
 
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
+
+    # >> Mathematicator packages:
+
+    # > mathematicator-core/engine
+    #    mathematicator.engine:
+    #        factory: Mathematicator\Engine\Engine
+    #        setup:
+    #            - addExtraModule(@Mathematicator\Engine\SampleModule)
+    #    mathematicator.queryNormalizer:
+    #        factory: Mathematicator\Engine\QueryNormalizer
+    #    mathematicator.translator:
+    #        factory: Mathematicator\Engine\Translator
+    Mathematicator\Engine\Engine: # added
+    Mathematicator\Engine\QueryNormalizer: # added
+    Mathematicator\NumberRewriter:
+    Mathematicator\NaturalTextFormatter:
+    Mathematicator\Engine\SampleModule:
+
+    #orm.annotations:
+    #    paths:
+    #        Mathematicator: %appDir%/../vendor/mathematicator-core
+
+    # > mathematicator-core/search
+    Mathematicator\Search\Search:
+    Mathematicator\Router\Router:
+        arguments: ['%math.functions%']
+    Mathematicator\Search\SearchAccessor:
+    Mathematicator\Search\Console:
+    Mathematicator\Search\Renderer:
+    Mathematicator\SearchController\NumberController:
+        public: true
+    Mathematicator\SearchController\DateController:
+    Mathematicator\SearchController\NumberCounterController:
+        arguments: ['%math.functions%']
+        public: true
+    Mathematicator\SearchController\IntegralController:
+    Mathematicator\SearchController\SequenceController:
+    Mathematicator\SearchController\OEISController:
+    Mathematicator\SearchController\CrossMultiplicationController:
+    Mathematicator\SearchController\MandelbrotSetController:
+    Mathematicator\SearchController\TreeController:
+
+    # Added
+    Nette\Application\LinkGenerator:
+    Nette\Routing\Router:
+        factory: ['App\Hotfixes\RouterFactory', 'createRouter']
+    Nette\Http\UrlScript:
+    Contributte\Psr6\CachePoolFactory:
+    Symfony\Contracts\Cache\TagAwareCacheInterface:
+    Contributte\Psr6\ICachePoolFactory:
+        alias: App\Hotfixes\CachePoolFactory
+
+    Mathematicator\Step\StepFactory:
+        public: true
+    Mathematicator\Tokenizer\Tokenizer:
+        public: true
+        arguments: ['%math%']
+    Mathematicator\Tokenizer\TokensToLatex:
+        arguments: ['%math.functions%']
+    Mathematicator\Tokenizer\TokensToObject:
+
+    Mathematicator\Calculator\Calculator:
+        public: true
+    Mathematicator\Calculator\TokensCalculator:
+    Mathematicator\Calculator\Operation\BaseOperation:
+
+    Mathematicator\Numbers\NumberFactory:
+        public: true
+    Mathematicator\MathFunction\FunctionManager:
+
+    Mathematicator\Calculator\Operation\:
+        resource: '../vendor/mathematicator-core/calculator/src/Operation/*'
+
+    Mathematicator\Vizualizator\MathFunctionRenderer:
+        public: true
+    Mathematicator\Vizualizator\Renderer:
+    Mathematicator\NumberHelper:
+        public: true
+    Mathematicator\Engine\Translator:
+        public: true
+    Mathematicator\Step\RomanIntSteps:
+        public: true
+    Mathematicator\Engine\Translation\TranslatorHelper:
+    Symfony\Component\Translation\Translator:
+        arguments: ['en_US']
