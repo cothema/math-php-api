@@ -15,14 +15,14 @@
     "doctrine/annotations": "^1.10",
     "friendsofsymfony/rest-bundle": "@dev",
     "jms/serializer-bundle": "^3.5",
-    "mathematicator-core/calculator": "dev-master as 2.0.0",
-    "mathematicator-core/engine": "dev-master as 2.0.0",
-    "mathematicator-core/integral-solver": "dev-master as 2.0.0",
-    "mathematicator-core/numbers": "dev-master as 2.0.0",
-    "mathematicator-core/search": "dev-master as 2.0.0",
-    "mathematicator-core/statistic": "dev-master as 2.0.0",
-    "mathematicator-core/tokenizer": "dev-master as 2.0.0",
-    "mathematicator-core/vizualizator": "dev-master as 2.0.0",
+    "mathematicator-core/calculator": "^2.0@dev",
+    "mathematicator-core/engine": "^2.0@dev",
+    "mathematicator-core/integral-solver": "^2.0@dev",
+    "mathematicator-core/numbers": "^2.0@dev",
+    "mathematicator-core/search": "^2.0@dev",
+    "mathematicator-core/statistic": "^2.0@dev",
+    "mathematicator-core/tokenizer": "^2.0@dev",
+    "mathematicator-core/vizualizator": "^2.0@dev",
     "nelmio/cors-bundle": "^2.0",
     "sensio/framework-extra-bundle": "^5.5",
     "sensiolabs/security-checker": "^6.0",
@@ -105,6 +105,5 @@
       "require": "5.0.*"
     }
   },
-  "minimum-stability": "dev",
-  "prefer-stable": true
+  "minimum-stability": "stable"
 }

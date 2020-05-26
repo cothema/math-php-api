@@ -5,7 +5,6 @@
       <path value="$PROJECT_DIR$/vendor/nette/http" />
       <path value="$PROJECT_DIR$/vendor/nette/component-model" />
       <path value="$PROJECT_DIR$/vendor/behat/gherkin" />
-      <path value="$PROJECT_DIR$/vendor/jdorn/sql-formatter" />
       <path value="$PROJECT_DIR$/vendor/flow/jsonpath" />
       <path value="$PROJECT_DIR$/vendor/twig/twig" />
       <path value="$PROJECT_DIR$/vendor/psr/log" />
@@ -48,7 +47,6 @@
       <path value="$PROJECT_DIR$/vendor/contributte/di" />
       <path value="$PROJECT_DIR$/vendor/contributte/psr6-caching" />
       <path value="$PROJECT_DIR$/vendor/contributte/console" />
-      <path value="$PROJECT_DIR$/vendor/contributte/psr11-container-interface" />
       <path value="$PROJECT_DIR$/vendor/codeception/lib-innerbrowser" />
       <path value="$PROJECT_DIR$/vendor/codeception/module-symfony" />
       <path value="$PROJECT_DIR$/vendor/codeception/codeception" />
@@ -59,7 +57,6 @@
       <path value="$PROJECT_DIR$/vendor/codeception/stub" />
       <path value="$PROJECT_DIR$/vendor/codeception/c3" />
       <path value="$PROJECT_DIR$/vendor/codeception/phpunit-wrapper" />
-      <path value="$PROJECT_DIR$/vendor/baraja-core/localization" />
       <path value="$PROJECT_DIR$/vendor/codeception/module-asserts" />
       <path value="$PROJECT_DIR$/vendor/baraja-core/package-manager" />
       <path value="$PROJECT_DIR$/vendor/baraja-core/doctrine" />
@@ -182,6 +179,11 @@
       <path value="$PROJECT_DIR$/vendor/nette/schema" />
       <path value="$PROJECT_DIR$/vendor/symfony/apache-pack" />
       <path value="$PROJECT_DIR$/vendor/nelmio/cors-bundle" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/sql-formatter" />
+      <path value="$PROJECT_DIR$/vendor/nette/tester" />
+      <path value="$PROJECT_DIR$/vendor/contributte/psr11-container-interface" />
+      <path value="$PROJECT_DIR$/vendor/baraja-core/localization" />
+      <path value="$PROJECT_DIR$/vendor/brick/math" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="7.4" />

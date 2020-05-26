@@ -9,6 +9,7 @@
       <excludeFolder url="file://$MODULE_DIR$/vendor/baraja-core/localization" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/baraja-core/package-manager" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/behat/gherkin" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/brick/math" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/codeception/c3" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/codeception/codeception" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/codeception/lib-asserts" />
@@ -40,6 +41,7 @@
       <excludeFolder url="file://$MODULE_DIR$/vendor/doctrine/orm" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/doctrine/persistence" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/doctrine/reflection" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/doctrine/sql-formatter" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/flow/jsonpath" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/friendsofsymfony/rest-bundle" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/guzzlehttp/guzzle" />
@@ -59,7 +61,6 @@
       <excludeFolder url="file://$MODULE_DIR$/vendor/hoa/visitor" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/hoa/zformat" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/janbarasek/php-moon-phase" />
-      <excludeFolder url="file://$MODULE_DIR$/vendor/jdorn/sql-formatter" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/jms/metadata" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/jms/serializer" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/jms/serializer-bundle" />
@@ -92,6 +93,7 @@
       <excludeFolder url="file://$MODULE_DIR$/vendor/nette/robot-loader" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/nette/routing" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/nette/schema" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/nette/tester" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/nette/tokenizer" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/nette/utils" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/ocramius/package-versions" />

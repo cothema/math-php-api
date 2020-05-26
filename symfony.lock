@@ -11,6 +11,9 @@
     "behat/gherkin": {
         "version": "v4.6.2"
     },
+    "brick/math": {
+        "version": "0.8.15"
+    },
     "codeception/c3": {
         "version": "2.4.1"
     },
@@ -156,6 +159,9 @@
     "doctrine/reflection": {
         "version": "1.2.1"
     },
+    "doctrine/sql-formatter": {
+        "version": "1.0.1"
+    },
     "flow/jsonpath": {
         "version": "0.5.0"
     },
@@ -221,9 +227,6 @@
     },
     "janbarasek/php-moon-phase": {
         "version": "v2.0"
-    },
-    "jdorn/sql-formatter": {
-        "version": "v1.2.17"
     },
     "jms/metadata": {
         "version": "2.1.0"
@@ -340,6 +343,9 @@
     },
     "nette/schema": {
         "version": "v1.0.2"
+    },
+    "nette/tester": {
+        "version": "v2.3.2"
     },
     "nette/tokenizer": {
         "version": "v3.1.0"
