@@ -10,8 +10,6 @@
 
 [![Integrity check](https://github.com/cothema/math-php-api/workflows/Integrity%20check/badge.svg)](https://github.com/cothema/math-php-api/actions?query=workflow%3A%22Integrity+check%22)
 [![Codecov](https://codecov.io/gh/cothema/math-php-api/branch/master/graph/badge.svg)](https://codecov.io/gh/mathematicator-core/calculator)
-[![Latest Stable Version](https://poser.pugx.org/cothema/math-php-api/v/stable)](https://packagist.org/packages/cothema/math-php-api)
-[![Latest Unstable Version](https://poser.pugx.org/cothema/math-php-api/v/unstable)](https://packagist.org/packages/cothema/math-php-api)
 [![License: MIT](https://img.shields.io/badge/License-MIT-brightgreen.svg)](./LICENSE)
 [![PHPStan Enabled](https://img.shields.io/badge/PHPStan-enabled%20L8-brightgreen.svg?style=flat)](https://phpstan.org/)
 
