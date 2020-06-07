@@ -13,5 +13,4 @@ class CachePoolFactory implements ICachePoolFactory
     {
         return new FilesystemAdapter($namespace);
     }
-
 }

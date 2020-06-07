@@ -8,21 +8,22 @@
     }
   ],
   "require": {
-    "php": "7.4.*",
+    "php": ">=7.4",
     "ext-ctype": "*",
     "ext-iconv": "*",
     "contributte/psr6-caching": "^0.2@dev",
     "doctrine/annotations": "^1.10",
     "friendsofsymfony/rest-bundle": "@dev",
     "jms/serializer-bundle": "^3.5",
-    "mathematicator-core/calculator": "^2.0@dev",
-    "mathematicator-core/engine": "^2.0@dev",
-    "mathematicator-core/integral-solver": "^2.0@dev",
-    "mathematicator-core/numbers": "^2.0@dev",
-    "mathematicator-core/search": "^2.0@dev",
-    "mathematicator-core/statistic": "^2.0@dev",
-    "mathematicator-core/tokenizer": "^2.0@dev",
-    "mathematicator-core/vizualizator": "^2.0@dev",
+    "mathematicator-core/calculator": "^2.2@dev",
+    "mathematicator-core/engine": "^2.2@dev",
+    "mathematicator-core/integral-solver": "^2.2@dev",
+    "mathematicator-core/numbers": "^2.2@dev",
+    "mathematicator-core/search": "^2.2@dev",
+    "mathematicator-core/statistic": "^2.2@dev",
+    "mathematicator-core/tokenizer": "^2.2@dev",
+    "mathematicator-core/vizualizator": "^2.2@dev",
+    "mathematicator-core/mandelbrot-set": "^2.2@dev",
     "nelmio/cors-bundle": "^2.0",
     "sensio/framework-extra-bundle": "^5.5",
     "sensiolabs/security-checker": "^6.0",
@@ -40,6 +41,7 @@
     "symfony/yaml": "5.0.*"
   },
   "require-dev": {
+    "brainmaestro/composer-git-hooks": "dev-master",
     "codeception/c3": "2.*",
     "codeception/codeception": "^4.1",
     "codeception/module-asserts": "^1.2",
@@ -47,25 +49,11 @@
     "codeception/module-phpbrowser": "^1.0",
     "codeception/module-rest": "^1.2",
     "codeception/module-symfony": "^1.1",
+    "phpstan/extension-installer": "^1.0",
     "phpstan/phpstan-symfony": "^0.12.6",
+    "squizlabs/php_codesniffer": "3.*",
     "symfony/profiler-pack": "^1.0",
     "symfony/test-pack": "^1.0"
-  },
-  "config": {
-    "preferred-install": {
-      "*": "dist"
-    },
-    "sort-packages": true
-  },
-  "autoload": {
-    "psr-4": {
-      "App\\": "src/"
-    }
-  },
-  "autoload-dev": {
-    "psr-4": {
-      "App\\Tests\\": "tests/"
-    }
   },
   "replace": {
     "janbarasek/doctrine-pro": "*",
@@ -77,6 +65,19 @@
     "symfony/polyfill-php70": "*",
     "symfony/polyfill-php56": "*"
   },
+  "conflict": {
+    "symfony/symfony": "*"
+  },
+  "autoload": {
+    "psr-4": {
+      "App\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "App\\Tests\\": "tests/"
+    }
+  },
   "scripts": {
     "auto-scripts": {
       "cache:clear": "symfony-cmd",
@@ -84,26 +85,50 @@
       "security-checker security:check": "script"
     },
     "post-install-cmd": [
+      "cghooks add --ignore-lock",
       "@auto-scripts"
     ],
     "post-update-cmd": [
+      "cghooks update",
       "@auto-scripts"
     ],
+    "cs:check": [
+      "vendor/bin/phpcs src"
+    ],
+    "cs:fix": [
+      "vendor/bin/phpcbf src tests"
+    ],
+    "phpstan": [
+      "php vendor/bin/phpstan analyse src --level 8 --no-progress"
+    ],
+    "fix": [
+      "composer update",
+      "@cs:fix",
+      "@phpstan",
+      "@test"
+    ],
     "test": "php vendor/bin/codecept run --no-interaction --coverage --coverage-xml",
-    "phpstan": "php vendor/bin/phpstan analyse src --level 8 --no-progress",
-    "test:all": [
-      "composer phpstan",
-      "composer test"
-    ]
+    "cghooks": "vendor/bin/cghooks"
   },
-  "conflict": {
-    "symfony/symfony": "*"
+  "config": {
+    "preferred-install": {
+      "*": "dist"
+    },
+    "sort-packages": true
   },
+  "minimum-stability": "stable",
   "extra": {
     "symfony": {
       "allow-contrib": false,
       "require": "5.0.*"
+    },
+    "hooks": {
+      "post-merge": "composer install",
+      "pre-commit": [
+        "composer cs:check",
+        "composer phpstan",
+        "composer test"
+      ]
     }
-  },
-  "minimum-stability": "stable"
+  }
 }

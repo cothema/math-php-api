@@ -16,27 +16,26 @@ use Nette\StaticClass;
 class RouterFactory
 {
 
-	use StaticClass;
+    use StaticClass;
 
-	/**
-	 * @return IRouter
-	 */
-	public static function createRouter(): IRouter
-	{
-		$router = new RouteList;
+    /**
+     * @return IRouter
+     */
+    public static function createRouter(): IRouter
+    {
+        $router = new RouteList;
 
-		$router[] = self::createFrontRouter();
+        $router[] = self::createFrontRouter();
 
-		return $router;
-	}
+        return $router;
+    }
 
-	private static function createFrontRouter(): IRouter
-	{
-		$router = new RouteList('Front');
+    private static function createFrontRouter(): IRouter
+    {
+        $router = new RouteList('Front');
 
-		$router[] = new Route('<presenter>/<action>', 'Homepage:default');
+        $router[] = new Route('<presenter>/<action>', 'Homepage:default');
 
-		return $router;
-	}
-
+        return $router;
+    }
 }

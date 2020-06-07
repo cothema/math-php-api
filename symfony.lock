@@ -2,14 +2,14 @@
     "baraja-core/doctrine": {
         "version": "v2.1.0"
     },
-    "baraja-core/localization": {
-        "version": "v1.0.10"
-    },
     "baraja-core/package-manager": {
         "version": "v2.1.0"
     },
     "behat/gherkin": {
         "version": "v4.6.2"
+    },
+    "brainmaestro/composer-git-hooks": {
+        "version": "dev-master"
     },
     "brick/math": {
         "version": "0.8.15"
@@ -344,9 +344,6 @@
     "nette/schema": {
         "version": "v1.0.2"
     },
-    "nette/tester": {
-        "version": "v2.3.2"
-    },
     "nette/tokenizer": {
         "version": "v3.1.0"
     },
@@ -379,6 +376,9 @@
     },
     "phpspec/prophecy": {
         "version": "v1.10.3"
+    },
+    "phpstan/extension-installer": {
+        "version": "1.0.4"
     },
     "phpstan/phpstan": {
         "version": "0.12.23"
@@ -500,6 +500,18 @@
         },
         "files": [
             "config/packages/security_checker.yaml"
+        ]
+    },
+    "squizlabs/php_codesniffer": {
+        "version": "3.0",
+        "recipe": {
+            "repo": "github.com/symfony/recipes-contrib",
+            "branch": "master",
+            "version": "3.0",
+            "ref": "0dc9cceda799fd3a08b96987e176a261028a3709"
+        },
+        "files": [
+            "phpcs.xml.dist"
         ]
     },
     "symfony/apache-pack": {
@@ -645,6 +657,9 @@
     },
     "symfony/polyfill-php73": {
         "version": "v1.15.0"
+    },
+    "symfony/polyfill-php80": {
+        "version": "v1.17.0"
     },
     "symfony/profiler-pack": {
         "version": "v1.0.4"

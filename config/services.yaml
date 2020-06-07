@@ -6,17 +6,6 @@
 parameters:
     symfony:
         container_xml_path: '../var/cache/dev/App_KernelDevDebugContainer.xml'
-    math.functions:
-            - sin
-            - cos
-            - tan
-            - cotan
-            - log
-            - log\d*
-            - ln
-            - sqrt
-    math:
-        functions: '%math.functions%'
 
 services:
     # default configuration for services in *this* file
@@ -40,85 +29,50 @@ services:
     # please note that last definitions always *replace* previous ones
 
     # >> Mathematicator packages:
-
-    # > mathematicator-core/engine
-    #    mathematicator.engine:
-    #        factory: Mathematicator\Engine\Engine
-    #        setup:
-    #            - addExtraModule(@Mathematicator\Engine\SampleModule)
-    #    mathematicator.queryNormalizer:
-    #        factory: Mathematicator\Engine\QueryNormalizer
-    #    mathematicator.translator:
-    #        factory: Mathematicator\Engine\Translator
-    Mathematicator\Engine\Engine: # added
-    Mathematicator\Engine\QueryNormalizer: # added
-    Mathematicator\NumberRewriter:
-    Mathematicator\NaturalTextFormatter:
-    Mathematicator\Engine\SampleModule:
-
-    #orm.annotations:
-    #    paths:
-    #        Mathematicator: %appDir%/../vendor/mathematicator-core
-
-    # > mathematicator-core/search
-    Mathematicator\Search\Search:
-    Mathematicator\Router\Router:
-        arguments: ['%math.functions%']
-    Mathematicator\Search\SearchAccessor:
-    Mathematicator\Search\Console:
-    Mathematicator\Search\Renderer:
-    Mathematicator\SearchController\NumberController:
+    Mathematicator\Search\:
+        resource: '../vendor/mathematicator-core/search/src'
+        exclude:
+            - '../vendor/mathematicator-core/search/src/Controller/OEISController.php' # problematic Baraja\Doctrine dependency
+            - '../vendor/mathematicator-core/search/src/Controller/SequenceController.php' # problematic Baraja\Doctrine dependency
         public: true
-    Mathematicator\SearchController\DateController:
-    Mathematicator\SearchController\NumberCounterController:
-        arguments: ['%math.functions%']
+    Mathematicator\Engine\:
+        resource: '../vendor/mathematicator-core/engine/src'
+        exclude:
+            - '../vendor/mathematicator-core/engine/src/Entity'
+            - '../vendor/mathematicator-core/engine/src/Exception'
+            - '../vendor/mathematicator-core/engine/src/Router/DynamicRoute.php'
         public: true
-    Mathematicator\SearchController\IntegralController:
-    Mathematicator\SearchController\SequenceController:
-    Mathematicator\SearchController\OEISController:
-    Mathematicator\SearchController\CrossMultiplicationController:
-    Mathematicator\SearchController\MandelbrotSetController:
-    Mathematicator\SearchController\TreeController:
+    Mathematicator\Tokenizer\:
+        resource: '../vendor/mathematicator-core/tokenizer/src'
+        exclude:
+            - '../vendor/mathematicator-core/tokenizer/src/Token'
+            - '../vendor/mathematicator-core/tokenizer/src/TokenIterator.php'
+        public: true
+    Mathematicator\Calculator\:
+        resource: '../vendor/mathematicator-core/calculator/src'
+        exclude:
+            - '../vendor/mathematicator-core/calculator/src/Entity'
+        public: true
+    Mathematicator\Vizualizator\:
+        resource: '../vendor/mathematicator-core/vizualizator/src'
+        exclude:
+            - '../vendor/mathematicator-core/vizualizator/src/RenderRequest.php'
+        public: true
+    Mathematicator\Statistics\:
+        resource: '../vendor/mathematicator-core/statistic/src'
+        exclude:
+            - '../vendor/mathematicator-core/statistic/src/Entity'
+            - '../vendor/mathematicator-core/statistic/src/StatisticsManager.php' # problematic Baraja\Doctrine dependency
+        public: true
 
     # Added
     Nette\Application\LinkGenerator:
     Nette\Routing\Router:
         factory: ['App\Hotfixes\RouterFactory', 'createRouter']
     Nette\Http\UrlScript:
-    Contributte\Psr6\CachePoolFactory:
     Symfony\Contracts\Cache\TagAwareCacheInterface:
+    Contributte\Psr6\CachePoolFactory:
     Contributte\Psr6\ICachePoolFactory:
         alias: App\Hotfixes\CachePoolFactory
-
-    Mathematicator\Step\StepFactory:
-        public: true
-    Mathematicator\Tokenizer\Tokenizer:
-        public: true
-    Mathematicator\Tokenizer\TokensToLatex:
-        arguments: ['%math.functions%']
-    Mathematicator\Tokenizer\TokensToObject:
-
-    Mathematicator\Calculator\Calculator:
-        public: true
-    Mathematicator\Calculator\TokensCalculator:
-    Mathematicator\Calculator\Operation\BaseOperation:
-
-    Mathematicator\Numbers\NumberFactory:
-        public: true
-    Mathematicator\MathFunction\FunctionManager:
-
-    Mathematicator\Calculator\Operation\:
-        resource: '../vendor/mathematicator-core/calculator/src/Operation/*'
-
-    Mathematicator\Vizualizator\MathFunctionRenderer:
-        public: true
-    Mathematicator\Vizualizator\Renderer:
-    Mathematicator\NumberHelper:
-        public: true
-    Mathematicator\Engine\Translator:
-        public: true
-    Mathematicator\Step\RomanIntSteps:
-        public: true
-    Mathematicator\Engine\Translation\TranslatorHelper:
     Symfony\Component\Translation\Translator:
         arguments: ['en_US']

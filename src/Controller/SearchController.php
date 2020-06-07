@@ -2,14 +2,15 @@
 
 namespace App\Controller;
 
-use FOS\RestBundle\Controller\Annotations as Rest;
 use FOS\RestBundle\Controller\AbstractFOSRestController;
+use FOS\RestBundle\Controller\Annotations as Rest;
 use FOS\RestBundle\Request\ParamFetcherInterface;
-use Mathematicator\Engine\EngineSingleResult;
-use Mathematicator\Engine\InvalidDataException;
-use Mathematicator\Engine\NoResultsException;
+use Mathematicator\Engine\Entity\EngineSingleResult;
+use Mathematicator\Engine\Exception\InvalidDataException;
+use Mathematicator\Engine\Exception\NoResultsException;
 use Mathematicator\Search\Search;
 use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\Serializer\Exception\ExceptionInterface;
 use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
 use Symfony\Component\Serializer\Serializer;
 
@@ -22,12 +23,12 @@ class SearchController extends AbstractFOSRestController
      * @param ParamFetcherInterface $paramFetcher
      * @param Search $search
      * @return JsonResponse
+     * @throws ExceptionInterface
      */
     public function search(
         ParamFetcherInterface $paramFetcher,
         Search $search
-    ): JsonResponse
-    {
+    ): JsonResponse {
         $query = (string) $paramFetcher->get('q');
 
         try {
